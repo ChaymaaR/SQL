@@ -1,0 +1,6 @@
+select numéro_parking,immatriculation_voitures,marque_voitures,date_sortie,date_entrée,active_abonné from historique
+inner join parking on parking.id_parking= historique.FKid_parking
+inner join voitures on voitures.idVOITURES= historique.FKid_voiture
+inner join abonne on abonne.idABONNE= voitures.FKid_abonné
+where active_abonné=1
+order by date_sortie asc ;

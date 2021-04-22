@@ -1,0 +1,6 @@
+select numéro_parking, immatriculation_voitures, nom_abonné,prénom_abonné,active_abonné from voitures
+inner join parking on parking.id_parking= voitures.FKid_parking
+inner join abonne on abonne.idABONNE= voitures.FKid_abonné
+where active_abonné=1
+order by parking.numéro_parking asc;
+

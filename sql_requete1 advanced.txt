@@ -1,0 +1,6 @@
+use soto;
+select nom_abonne,prenom_abonne,immatriculation_voitures,début_abonnement,fin_abonnement from abonnes
+inner join voitures on voitures.FKid_abonnes=abonnes.idabonnes
+inner join enregistre on enregistre.FKid_voitures=voitures.idvoitures
+where year(date_fin)=year(current_date()) and month(date_fin)=month(current_date()+interval 1 month);
+

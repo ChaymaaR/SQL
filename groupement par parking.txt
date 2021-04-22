@@ -1,0 +1,6 @@
+
+
+select immatriculation_voitures,marque_voitures,adresse_parking,numéro_parking,active_voiture from voitures 
+inner join parking on parking.id_parking= voitures.FKid_parking
+where active_voiture=0
+order by parking.numéro_parking ;

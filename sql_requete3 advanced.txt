@@ -1,0 +1,4 @@
+use soto;
+select nom_abonne,prenom_abonne,immatriculation_voitures,marque_voitures from voitures
+inner join abonnes on abonnes.idabonnes= voitures.FKid_abonnes;
+

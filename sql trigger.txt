@@ -1,0 +1,25 @@
+DELIMITER $$
+create trigger upd_actives_voitures before update on updated for each row
+
+begin
+
+if NEW.sortie=current_timestamp() then
+        set NEW.présence_voitures= 0;
+else if NEW.entrée= current_timestamp() then 
+        set NEW.présence_voitures= 1;
+end if;
+end if;
+end$$
+
+DELIMITER ;
+
+
+
+update updated
+set entrée=current_timestamp()
+where id_parking=1 and marque_voitures='Jeep';
+select*from updated where id_parking=1
+
+select id_parking,capacite_parking,sum(présence_voitures) as nb_places_occupées, ( capacite_parking-sum(présence_voitures)) as nb_places_dispos 
+from updated
+group by id_parking

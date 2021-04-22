@@ -1,0 +1,12 @@
+
+use soto;
+select id_parking, entrée,sortie,immatriculation_voitures,marque_voitures,actif_voitures from enregistre
+inner join parking on parking.id_parking=enregistre.FKid_parking
+inner join voitures on voitures.idvoitures=enregistre.FKid_voiture
+swhere id_parking=1;
+
+create table updated as
+select id_parking,capacite_parking,entrée,sortie,immatriculation_voitures,marque_voitures,présence_voitures from enregistre
+inner join parking on parking.id_parking=enregistre.FKid_parking
+inner join voitures on voitures.idvoitures=enregistre.FKid_voitures
+;

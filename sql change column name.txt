@@ -1,0 +1,4 @@
+use soto;
+select*from voitures;
+alter table voitures 
+change column actif_abonne actif_voitures TINYINT;
